@@ -1,24 +1,18 @@
 import { type ReactNode } from 'react';
 
-export function Button({
+export default function Button({
   children,
   onClick,
-  variant = 'primary',
-  size = 'medium',
   disabled = false,
+  className,
 }: {
   children: ReactNode;
   onClick?: () => void;
-  variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
+  className?: string;
 }) {
   return (
-    <button
-      className={`flex items-center justify-center rounded-lg font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50`}
-      onClick={onClick}
-      disabled={disabled}
-    >
+    <button className={`button ${className}`} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );

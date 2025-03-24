@@ -8,8 +8,9 @@
     "dist"
   ],
   "exports": {
-    "./styles.css": "./dist/index.css",
-    "./*": "./src/*.tsx"
+    "./*": "./src/*.tsx",
+    "./Button": "./src/Button.tsx",
+    "./styles.css": "./dist/index.css"
   },
   "license": "MIT",
   "scripts": {
@@ -25,7 +26,6 @@
     "@repo/eslint-config": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@repo/prettier-config": "workspace:*",
     "@types/react": "^19.0.10",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.22.0",

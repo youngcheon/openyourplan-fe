@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .button {
+    @apply rounded-base hover:bg-black-80 h-[48px] w-[335px] bg-black font-semibold text-white;
+  }
+  .button:disabled {
+    @apply cursor-not-allowed hover:bg-black;
+  }
+}

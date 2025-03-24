@@ -1,12 +1,33 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
+import colors from 'tailwindcss/colors';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
-// We want each package to be responsible for its own content.
-const config: Omit<Config, "content"> = {
+const config: Omit<Config, 'content'> = {
   theme: {
     extend: {
-      backgroundImage: {
-        "glow-conic":
-          "conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #a853ba 180deg, #e92a67 360deg)",
+      fontFamily: {
+        sans: ['Pretendard', ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        ...colors,
+        black: '#111111',
+        'black-80': 'rgba(17, 17, 17, 0.8)',
+        white: '#ffffff',
+      },
+
+      borderRadius: {
+        base: '12px',
+      },
+      fontSize: {
+        sm: '15px',
+        base: '16px',
+        lg: '20px',
+        xl: '28px',
+      },
+      screens: {
+        phone: '375px',
+        tablet: '640px',
+        desktop: '1024px',
       },
     },
   },

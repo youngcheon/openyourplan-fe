@@ -20,6 +20,9 @@ importers:
 
   apps/storybook:
     dependencies:
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -30,6 +33,15 @@ importers:
       '@chromatic-com/storybook':
         specifier: ^3
         version: 3.2.6(react@19.0.0)(storybook@8.6.8)
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@repo/tailwind-config':
+        specifier: workspace:*
+        version: link:../../packages/tailwind-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@storybook/addon-essentials':
         specifier: ^8.6.8
         version: 8.6.8(@types/react@19.0.10)(storybook@8.6.8)
@@ -161,8 +173,6 @@ importers:
         specifier: ^8.26.0
         version: 8.26.0(eslint@9.22.0)(typescript@5.8.2)
 
-  packages/prettier-config: {}
-
   packages/tailwind-config:
     devDependencies:
       '@repo/typescript-config':
@@ -183,9 +193,6 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@repo/prettier-config':
-        specifier: workspace:*
-        version: link:../prettier-config
       '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../tailwind-config
