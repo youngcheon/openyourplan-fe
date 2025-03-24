@@ -11,6 +11,7 @@ const config: Omit<Config, 'content'> = {
       colors: {
         ...colors,
         black: '#111111',
+        'black-50': 'rgba(17, 17, 17, 0.5)',
         'black-80': 'rgba(17, 17, 17, 0.8)',
         white: '#ffffff',
       },

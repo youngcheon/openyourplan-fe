@@ -1,9 +1,10 @@
 import Button from '@repo/ui/Button';
-import { Header, Footer, Main } from '@repo/ui/Layout';
+import { Container, Header, Footer, Main } from '@repo/ui/Layout';
+import Link from 'next/link';
 
 export default function Page() {
   return (
-    <div>
+    <Container>
       <Header>
         <p>김영현</p>
       </Header>
@@ -12,8 +13,10 @@ export default function Page() {
         <h1>김영현 입니다.</h1>
       </Main>
       <Footer>
-        <Button>버튼</Button>
+        <Link href="/result">
+          <Button>다음</Button>
+        </Link>
       </Footer>
-    </div>
+    </Container>
   );
 }

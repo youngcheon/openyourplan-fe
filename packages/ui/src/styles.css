@@ -2,26 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  * {
-    @apply leading-[140%] tracking-[-2%];
-  }
-
-  .button {
-    @apply rounded-base hover:bg-black-80 h-[48px] w-[335px] bg-black text-base font-semibold text-white;
-  }
-  .button:disabled {
-    @apply cursor-not-allowed hover:bg-black;
-  }
-
-  .header {
-    @apply fixed left-0 right-0 top-0 flex h-[52px] w-full items-center justify-center bg-white;
-  }
-  .footer {
-    @apply fixed bottom-0 left-0 right-0 flex h-[140px] w-full items-center justify-center bg-white;
-  }
-  .main {
-    @apply mb-[140px] mt-[52px] flex min-h-[calc(100vh-192px)] w-full flex-col items-center justify-center bg-white;
+@layer base {
+  html,
+  body {
+    @apply h-full w-full;
   }
 
   h1 {
@@ -30,5 +14,55 @@
 
   p {
     @apply text-sm;
+  }
+}
+
+@layer components {
+  * {
+    @apply leading-[140%] tracking-[-2%];
+  }
+
+  .button {
+    @apply rounded-base hover:bg-black-80 h-[48px] w-[335px] bg-black text-base font-semibold text-white;
+  }
+
+  .button.full {
+    @apply w-full;
+  }
+
+  .button:disabled {
+    @apply cursor-not-allowed hover:bg-black;
+  }
+
+  .wrapper {
+    @apply flex h-full w-full flex-col items-center justify-center;
+  }
+
+  .header {
+    @apply flex h-[52px] w-full items-center justify-center;
+  }
+
+  .footer {
+    @apply flex h-[140px] w-full items-center justify-center;
+  }
+
+  .main {
+    @apply flex h-full w-full flex-1 flex-col items-center justify-center px-[20px];
+  }
+
+  .section {
+    @apply desktop:flex-row flex h-full w-full flex-col gap-10 p-[20px];
+  }
+
+  .section > div {
+    @apply desktop:h-full tablet:h-full flex w-full items-center justify-center rounded-[12px];
+  }
+
+  .box {
+    @apply phone:flex-col desktop:flex-row tablet:flex-row flex h-fit w-full flex-row items-center justify-center rounded-[12px] bg-white p-5;
+  }
+
+  .box > div {
+    @apply flex h-full w-full flex-col items-start justify-center rounded-[12px];
   }
 }
