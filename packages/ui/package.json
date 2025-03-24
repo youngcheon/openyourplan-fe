@@ -10,7 +10,8 @@
   "exports": {
     "./*": "./src/*.tsx",
     "./Button": "./src/Button.tsx",
-    "./styles.css": "./dist/index.css"
+    "./styles.css": "./dist/index.css",
+    "./Layout": "./src/Layout.tsx"
   },
   "license": "MIT",
   "scripts": {
