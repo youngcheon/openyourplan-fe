@@ -1,24 +1,38 @@
+'use client';
+
 import { Container, Header, Main, Section, Box } from '@repo/ui/Layout';
 import Button from '@repo/ui/Button';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Data } from '@repo/types';
+import useDataStore from '@/store/data-store';
+import { useRouter } from 'next/navigation';
+import { useTimeout } from '@repo/hooks';
 
-async function getData(): Promise<Data> {
-  const res = await fetch('https://picsum.photos/id/0/info', { cache: 'no-store' });
-  const data = await res.json();
-  return data;
-}
+const ResultPage = () => {
+  const router = useRouter();
+  const data = useDataStore(state => state.data);
+  const reset = useDataStore(state => state.reset);
 
-const ResultPage = async () => {
-  const data = await getData();
+  useTimeout(
+    () => {
+      router.push('/');
+    },
+    { delay: 1000, enabled: !data },
+  );
+
+  const handleGoBack = () => {
+    reset();
+    router.push('/');
+  };
+
+  if (!data) return null; // TODO : 데이터가 없을 경우 스켈레톤 이미지 보여주기
 
   return (
     <Container className="relative">
-      <Image src={data.download_url} alt="image" fill className="absolute inset-0 -z-10 object-cover blur-2xl" />
-      <Image src="/pattern.png" alt="background" fill className="absolute inset-0 -z-10 object-cover blur-lg" />
-      <div className="absolute inset-0 -z-10 bg-black/30" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent to-[#D9D9D9]" />
+      <Image src={data.download_url} alt="image" fill className="absolute -z-10 object-cover blur-2xl" />
+      <Image src="/pattern.png" alt="background" fill className="absolute -z-10 object-cover blur-lg" />
+      <div className="absolute -z-10 h-full w-full bg-black/30" />
+      <div className="absolute -z-10 h-full w-full bg-gradient-to-b from-transparent to-[#D9D9D9]" />
       <Header>
         <p className="text-white">김영현</p>
       </Header>
@@ -57,7 +71,12 @@ const ResultPage = async () => {
             <Box className="!flex-col">
               <div>
                 <p>url</p>
-                <Link href={data.url} target="_blank" rel="noopener noreferrer" className="underline opacity-50">
+                <Link
+                  href={data.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="line-clamp-1 underline opacity-50"
+                >
                   {data.url}
                 </Link>
               </div>
@@ -67,15 +86,15 @@ const ResultPage = async () => {
                   href={data.download_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline opacity-50"
+                  className="line-clamp-1 underline opacity-50"
                 >
                   {data.download_url}
                 </Link>
               </div>
             </Box>
-            <Link href="/" className="flex w-full items-center justify-center">
-              <Button className="phone:!w-full tablet:!w-[154px] desktop:!w-[154px]">이전</Button>
-            </Link>
+            <Button className="phone:!w-full tablet:!w-[154px] desktop:!w-[154px]" onClick={handleGoBack}>
+              이전
+            </Button>
           </div>
         </Section>
       </Main>

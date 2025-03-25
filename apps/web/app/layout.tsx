@@ -1,19 +1,24 @@
+'use client';
+
 import './globals.css';
 import '@repo/ui/styles.css';
-import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: '김영현',
-  description: '오픈 플랜 과제',
-};
+const queryClient = new QueryClient();
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <QueryClientProvider client={queryClient}>
+          {children}
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </body>
     </html>
   );
 }

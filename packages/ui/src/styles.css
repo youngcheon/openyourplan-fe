@@ -8,6 +8,10 @@
     @apply h-full w-full;
   }
 
+  * {
+    @apply leading-[140%] tracking-[-2%];
+  }
+
   h1 {
     @apply text-2xl font-semibold;
   }
@@ -18,10 +22,6 @@
 }
 
 @layer components {
-  * {
-    @apply leading-[140%] tracking-[-2%];
-  }
-
   .button {
     @apply rounded-base hover:bg-black-80 h-[48px] w-[335px] bg-black text-base font-semibold text-white;
   }
@@ -35,7 +35,7 @@
   }
 
   .wrapper {
-    @apply flex h-full w-full flex-col items-center justify-center;
+    @apply flex h-full min-h-fit w-full flex-col items-center justify-center;
   }
 
   .header {
@@ -55,11 +55,11 @@
   }
 
   .section > div {
-    @apply desktop:h-full tablet:h-full flex w-full items-center justify-center rounded-[12px];
+    @apply flex w-full flex-1 items-center justify-center rounded-[12px];
   }
 
   .box {
-    @apply phone:flex-col desktop:flex-row tablet:flex-row flex h-fit w-full flex-row items-center justify-center rounded-[12px] bg-white p-5;
+    @apply phone:flex-col desktop:flex-row tablet:flex-row border-black-1 flex h-fit w-full flex-row items-center justify-center gap-[16px] rounded-[12px] border-[1px] border-solid bg-white p-5;
   }
 
   .box > div {
