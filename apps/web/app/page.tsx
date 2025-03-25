@@ -4,21 +4,27 @@ import Button from '@repo/ui/Button';
 import { Container, Header, Footer, Main } from '@repo/ui/Layout';
 import useFetchData from '@/hooks/use-fetch-data';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useDataStore from '@/store/data-store';
+import { useThrottle } from '@repo/hooks';
 
 export default function Page() {
   const router = useRouter();
   const { mutate: fetchData } = useFetchData();
   const data = useDataStore(state => state.data);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleClick = () => {
+  const handleClickWithThrottle = useThrottle(() => {
+    setIsLoading(true);
     fetchData(undefined, {
       onSuccess: () => {
         router.push('/result');
       },
+      onSettled: () => {
+        setIsLoading(false);
+      },
     });
-  };
+  }, 500);
 
   useEffect(() => {
     if (data) {
@@ -36,7 +42,9 @@ export default function Page() {
         <h1>김영현 입니다.</h1>
       </Main>
       <Footer>
-        <Button onClick={handleClick}>다음</Button>
+        <Button onClick={handleClickWithThrottle} isLoading={isLoading}>
+          다음
+        </Button>
       </Footer>
     </Container>
   );

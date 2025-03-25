@@ -31,7 +31,7 @@
   }
 
   .button:disabled {
-    @apply cursor-not-allowed hover:bg-black;
+    @apply bg-black-80 cursor-not-allowed;
   }
 
   .wrapper {
