@@ -7,6 +7,7 @@ import Image from 'next/image';
 import useDataStore from '@/store/data-store';
 import { useRouter } from 'next/navigation';
 import { useTimeout } from '@repo/hooks';
+import Skeleton from '@repo/ui/Skeleton';
 
 const ResultPage = () => {
   const router = useRouter();
@@ -25,7 +26,9 @@ const ResultPage = () => {
     router.push('/');
   };
 
-  if (!data) return null; // TODO : 데이터가 없을 경우 스켈레톤 이미지 보여주기
+  if (!data) {
+    return <Skeleton />;
+  }
 
   return (
     <Container className="relative">

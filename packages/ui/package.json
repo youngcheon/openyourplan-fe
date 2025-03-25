@@ -12,7 +12,8 @@
     "./Button": "./src/Button.tsx",
     "./styles.css": "./dist/index.css",
     "./Layout": "./src/Layout.tsx",
-    "./Loading": "./src/Loading.tsx"
+    "./Loading": "./src/Loading.tsx",
+    "./Skeleton": "./src/Skeleton.tsx"
   },
   "license": "MIT",
   "scripts": {

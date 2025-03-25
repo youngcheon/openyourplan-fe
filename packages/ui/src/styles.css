@@ -55,7 +55,7 @@
   }
 
   .section > div {
-    @apply flex w-full flex-1 items-center justify-center rounded-[12px];
+    @apply flex h-full w-full flex-1 items-center justify-center rounded-[12px];
   }
 
   .box {
@@ -63,6 +63,6 @@
   }
 
   .box > div {
-    @apply flex h-full w-full flex-col items-start justify-center rounded-[12px];
+    @apply flex h-full w-full flex-col justify-center rounded-[12px];
   }
 }
