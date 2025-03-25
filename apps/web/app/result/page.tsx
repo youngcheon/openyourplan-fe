@@ -8,6 +8,7 @@ import useDataStore from '@/store/data-store';
 import { useRouter } from 'next/navigation';
 import { useTimeout } from '@repo/hooks';
 import Skeleton from '@repo/ui/Skeleton';
+import { Background } from '@/components';
 
 const ResultPage = () => {
   const router = useRouter();
@@ -32,10 +33,7 @@ const ResultPage = () => {
 
   return (
     <Container className="relative">
-      <Image src={data.download_url} alt="image" fill className="absolute -z-10 object-cover blur-2xl" />
-      <Image src="/pattern.png" alt="background" fill className="absolute -z-10 object-cover blur-lg" />
-      <div className="absolute -z-10 h-full w-full bg-black/30" />
-      <div className="absolute -z-10 h-full w-full bg-gradient-to-b from-transparent to-[#D9D9D9]" />
+      <Background imageUrl={data.download_url} />
       <Header>
         <p className="text-white">김영현</p>
       </Header>
