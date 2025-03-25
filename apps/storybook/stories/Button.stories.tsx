@@ -26,6 +26,13 @@ export const Disabled: Story = {
   },
 };
 
+export const Loading: Story = {
+  args: {
+    children: '로딩 버튼',
+    isLoading: true,
+  },
+};
+
 export const WithOnClick: Story = {
   args: {
     children: '클릭 이벤트',
