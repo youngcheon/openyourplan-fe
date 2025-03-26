@@ -29,8 +29,8 @@ const config: Omit<Config, 'content'> = {
       },
       screens: {
         phone: '375px',
-        tablet: '640px',
-        desktop: '1024px',
+        tablet: '768px',
+        desktop: '1440px',
       },
     },
   },
