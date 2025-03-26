@@ -4,7 +4,7 @@ interface LoadingProps {
 
 export default function Loading({ className = '' }: LoadingProps) {
   return (
-    <div className={`inline-flex items-center gap-2 ${className}`}>
+    <div className={`flex items-center justify-center ${className}`}>
       <svg
         className="h-4 w-4 animate-spin text-current"
         xmlns="http://www.w3.org/2000/svg"
